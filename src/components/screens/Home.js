@@ -17,15 +17,18 @@ import { Button } from "react-native";
 
 export default function Home() {
   const [serachResult, setSerachResult] = useState(null);
-
   const cityList = useSelector((state) => state);
 
   const dispatch = useDispatch();
-
-  // console.log("-----------------------------");
-  // console.log(cityList);
-  // console.log("====================================");
-  // console.log(serachResult);
+  
+  let handleAddCity = () => {
+    let boolean = cityList.some((city) => city.id === serachResult.id);
+    if (boolean) {
+      alert("city alerady present in the List");
+    } else {
+      dispatch(AddCity(serachResult));
+    }
+  };
   return (
     <ImageBackground
       source={{
@@ -117,10 +120,7 @@ export default function Home() {
                     </Text>
                   </View>
                   {serachResult && serachResult.name !== "Bengaluru" && (
-                    <Button
-                      title="Add city to list"
-                      onPress={() => dispatch(AddCity(serachResult))}
-                    />
+                    <Button title="Add city to list" onPress={handleAddCity} />
                   )}
                 </View>
               </>
@@ -193,7 +193,7 @@ export default function Home() {
                     </View>
                     <Button
                       title="Remove city from list"
-                      onPress={() => dispatch(RemoveCity(index))}
+                      onPress={() => dispatch(RemoveCity(item.id))}
                     />
                   </View>
                 );

@@ -27,6 +27,8 @@ export default function Home() {
       alert("city alerady present in the List");
     } else {
       dispatch(AddCity(serachResult));
+      alert("city added to List");
+
     }
   };
   return (
@@ -192,6 +194,7 @@ export default function Home() {
                       </Text>
                     </View>
                     <Button
+                    color={'crimson'}
                       title="Remove city from list"
                       onPress={() => dispatch(RemoveCity(item.id))}
                     />

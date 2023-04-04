@@ -18,6 +18,7 @@ function SeachBar({ setSerachResult }) {
                 // console.log('=============================');
                 // console.log(data);
                 setSerachResult(data)
+                setSearchVal('')
             } catch (e) {
                 // console.log(e);
                 alert('please enter valid city name')
@@ -36,7 +37,7 @@ function SeachBar({ setSerachResult }) {
                 placeholder='Search City'
                 placeholderTextColor={'#fff'}
                 keyboardType='numbers-and-punctuation'
-                onSubmitEditing={() => setSearchWord(searchVal.toLowerCase().trim())}
+                onSubmitEditing={() =>( setSearchWord(searchVal.toLowerCase().trim()))}
             />
             {/* <Button title='Search' onPress={() => setSearchWord(searchVal.toLowerCase().trim())} /> */}
         </View>

@@ -1,12 +1,14 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Main from './src/navigation/Main';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <>
+      <Main/>
       <StatusBar style="auto" />
-    </View>
+    </>
   );
 }
 
@@ -18,5 +20,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-//http://api.openweathermap.org/data/2.5/weather?q=bangalore&units=metric&appid=1cb6532aea3c298a830a71380eace21e
